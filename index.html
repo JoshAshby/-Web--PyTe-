@@ -1,0 +1,154 @@
+<!doctype html> 
+<html> 
+
+<head> 
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+	<title>{Web: PyTe}</title> 
+	<meta name="description" content="{Web: PyTe}">
+	<meta name="author" content="Joshua Ashby">
+	
+	<link href="kendo/css/kendo.common.min.css" rel="stylesheet" />
+	<link href="kendo/css/kendo.kendo.min.css" rel="stylesheet" />
+	
+	<!-- <link href="css/style.css" rel="stylesheet" /> -->
+	
+	<link rel="stylesheet/less" href="css/style.less">
+	<script src="js/less.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		less.env = "development";
+		less.watch();
+	</script>
+</head>
+ 
+<body>
+	<div id="content">
+		<header>
+			<div id="headLeft">
+				<p>A project by Josh Ashby 2011</p>
+			</div>
+			<div id="headCent">
+				<h1 id="title">{Web: PyTe}</h1>
+			</div>
+			<div id="headRight">
+				<p><a href="mailto:joshuaashby@joshashby.com">joshuaashby@joshashby.com</a></p>
+			</div>
+		</header>
+		
+		<nav>
+			<ul id="menu">
+				<li>File
+					<ul>
+						<li id="new">New</li>
+						<li id="open">Open</li>
+					</ul>
+				<li>Language
+					<ul>
+						<li id="python">Python</li>
+						<li id="javascript">Javascript</li>
+						<li id="coffeescript">Coffeescript</li>
+					</ul>
+				</li>
+				<li id="aboutMenu">About</li>
+			</ul>
+		</nav>
+		
+		<div id="main" role="main">
+			<div id="consolSplit">
+				<div id="mainSplit">
+					<div id="sidebar">
+						<ul id="vertSidebar">
+							<li data-expanded="true">Info
+								<ul id="info">
+									<li>File: <div id="file"></div></li>
+									<li>Language: <div id="lang"></div></li>
+								</ul>
+							</li>
+							<li id="fileInfo">Files
+								<ul>
+									<li>Project file list here</li>
+								</ul>
+							</li>
+							<li id="folderInfo">Folders
+								<ul>
+									<li>Project folder list here</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div id="edit"></div>
+				</div>
+				<div id="consoleMain">
+				</div>
+			</div>
+		</div>
+	
+		<footer>
+			<div id="statusInfo">Language: <div id="statusLang">Python</div> | 
+			File: <div id="statusFile">python.py</div> | </div>
+			Console: <div id="consoleControl"></div> | 
+			Status: <div id="status"></div>
+		</footer>
+	</div>
+	
+	<div id="about" class="window">
+		<h2>PyTe: Web Edition</h2>
+		<p>Version: .1a</p>
+		<p>PyTe stands for <b>Py</b>thon <b>T</b>ext <b>E</b>ditor
+		PyTe was origonally written as a desktop application in Python using the QT3,
+		and in later versions the QT4 Python bindings.
+		As a result of the massive amount of technology coming out for the web,
+		it's only fitting that a web version of PyTe should be available.
+		This is the vist iteration of him, built with less.js, jquery, kendoUI,
+		ace, keymaster.js, CoffeeScript and several other web technologies.
+		This is a HTML5 web app, with a mobile view and a regular desktop view.
+		It also takes advantage of new HTML5 technologies and CSS3.</p>
+	</div>
+	
+	<div id="openWindow" class="window">
+		<h2>Upload a file</h2>
+		<p>Here you can choose a file on your harddrive which will be uploaded with
+		HTML5's file API and the resulting text placed into the editor.
+		<input type="file" id="openUpload">
+	</div>
+	
+	<div id="waitWindow" class="window">
+		<div id="spin"></div>
+		<div id="waitInfo"></div>
+	</div>
+	
+	<div id="welcomeWindow" class="window">
+		<h2>Welcome to {Web: PyTe}!</h2>
+		<p>We're glad to have you here. This is the web version of the Python Text Editor
+		by Josh Ashby. I'm built on HTML5, CSS3 and several javascript frameworks including less.css,
+		kendoUI, jQuery, ace editor, and keyMaster.js.<br>
+		All of these need pretty new browsers, so as a result, for your best experience please consider using
+		Firefox or Google Chrome.<br>
+		<br>
+		Okay, lets get you started here. I use localStorage to store your opened files, so all you have to do is go to
+		the file menu and click open, or use the key sequence "ctrl a" which should open up the file selection window.<br>
+		After this is done, I'll store the changes and everything for you in localStorage. That way, if you leave or close your browser,
+		all the changes you've made will still be here. (Later on I may also store this in a server side database and provide a server project
+		and file open function.)
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script src="kendo/js/kendo.all.min.js"></script>
+	<script src="js/ace/ace.js"></script>
+	<script src="js/ace/theme-vibrant_ink.js"></script>
+	<script src="js/ace/mode-python.js"></script>
+	<script src="js/ace/mode-javascript.js"></script>
+	<script src="js/ace/mode-coffee.js"></script>
+	<script src="js/keymaster.min.js"></script>
+	<script src="js/spin.js"></script>
+	
+	<!-- <script src="js/myfunc/index.js"></script> -->
+	
+	<script type="text/coffeescript" src="cs/edit.coffee"></script>
+	<script type="text/coffeescript" src="cs/console.coffee"></script>
+	<script type="text/coffeescript" src="cs/index.coffee"></script>
+	
+	<script src="js/coffee-script.js"></script>
+</body> 
+</html>

@@ -1,0 +1,316 @@
+@big_font: 2.0em;
+
+/* JoshAshby's Colors :D */
+@khaki: #C4B3A4;
+@black: #dbdbdb; /* thats not quiet black... */
+@charcoal: #36454F; /* blue dark grey */
+@grey: #848482;
+@light-grey: #B2BEB5;
+@really-light-grey: #E5E4E2;
+@anti-flash-white: #F2F3F4;
+@eggshell: #F0EAD6;
+@blue: #0067A5;
+@orange: #CC5500;
+@red: #B22222;
+@green: #8DB600;
+@yellow: #E4D00A;
+
+html,body,h1,h2,h3,h4,h5,h6,p,blockquote,a{margin:0;padding:0;border:0;outline:0;font-size:100%;background:transparent}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	min-height: 100%;
+	min-width: 100%;
+	text-align: center;
+	overflow: hidden;
+	overflow-y: visible;
+	background: @really-light-grey;
+	@media screen and (max-width: 800px) {
+		padding-bottom: 20px;
+		overflow: visible;
+	}
+}
+
+#content {
+	min-height: 100%;
+	min-width: 100%;
+	height: 100%;
+}
+
+header {
+	.two_gradient(#74b042, #56A00E);
+	height: 40px;
+	display: block;
+	div {
+		display: inline-block;
+		padding-left: 5px;
+		padding-right: 5px;
+		height: 100%;
+	}
+	@media screen and (max-width: 800px) {
+		#headLeft {
+			display: none;
+		}
+		#headRight {
+			display: none;
+		}
+	}
+	@media screen and (min-width: 801px) {
+		#headCent {
+			border-left: 2px solid (@green - 50);
+			border-right: 2px solid (@green - 50);
+			height: 100%;
+			padding-left: 50px;
+			padding-right: 50px;
+		}
+		#headLeft {
+			width: 30%;
+		}
+		#headRight {
+			width: 30%;
+		}
+	}
+}
+
+nav {
+	text-align: left;
+}
+
+#consolSplit {
+	@media screen and (max-width: 800px) {
+		display: block;
+		div {
+			display: block;
+		}
+	}
+	width: 100%;
+	#mainSplit {
+		overflow: hidden;
+		#edit {
+			width: 100%;
+			overflow: hidden;
+			text-align: left;
+		}
+		#sidebar {
+			width: 100%;
+			background: @really-light-grey;
+			#vertSidebar {
+				font-size: small;
+				text-align: left;
+				#info {
+					color: black;
+					display: block;
+					div {
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+	#consoleMain {
+		background: @really-light-grey;
+		width: 100%;
+		text-align: left;
+		font-family: "Courier New", Courier, monospace;
+		#conTop {
+			position: absolute;
+			top: 0px;
+			background: @light-grey;
+			width: 100%;
+			display: block;
+		}
+		#conMid {
+			display: block;
+			font-size: small;
+			ul {
+				position: relative;
+				top: 4px;
+				line-height: 12pt;
+				display: inline-block;
+				list-style: none;
+				span {
+					position: absolute;
+					left: 0px;
+					width: 38px;
+					border-right: 2px solid @green;
+					background: @anti-flash-white;
+				}
+			}
+		}
+	}
+}
+
+footer {
+	@media screen and (min-width: 801px) {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+	}
+	@media screen and (max-width: 800px) {
+		position: relative;
+		font-size: small;
+	}
+	background: @really-light-grey;
+	border-top: 2px solid @green;
+	text-align: left;
+	height: 20px;
+	width: 100%;
+	display: block;
+	div {
+		display: inline-block;
+	}
+}
+
+/* Console Looks */
+div #consoleControl {
+	#consoleBar {
+		font-size: 12px;
+		font-family: "Courier New", Courier, monospace;
+		width: 200px;
+		height: 14px;
+		background: @light-grey;
+		.round(10px, 10px, 10px, 10px);
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		position: relative;
+		top: -1px;
+		margin-right: 5px;
+		border: 1px solid @grey;
+		line-height: 14px;
+	}
+	@media screen and (min-width: 801px) {
+		#consoleBar {
+			width: 300px;
+		}
+	}
+	@media screen and (max-width: 800px) {
+		#consoleBar {
+			width: 200px;
+		}
+		#statusInfo {
+			display: none;
+		}
+	}
+	#consoleSub {
+		.label(@green);
+	}
+	#consoleSub:hover {
+		background: @green - 50;
+		cursor: pointer;
+	}
+	#consoleSub:active {
+		background: @green - 100;
+		cursor: pointer;
+		border: 1px solid (@green - 10);
+	}
+}
+
+.window {
+	font-size: small;
+	text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+	html, body {
+		padding-bottom: 20px;
+		overflow: visible;
+	}
+}
+
+//various Mixin styles
+.two_gradient (@one, @two) {
+	background: @one;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@one), to(@two)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, @one, @two); /* Chrome 10+, Saf5.1+ */
+	background-image: -moz-linear-gradient(top,@one, @two); /* FF3.6 */
+	background-image: -ms-linear-gradient(top, @one, @two); /* IE10 */
+	background-image: -o-linear-gradient(top, @one, @two); /* Opera 11.10+ */
+	background-image: linear-gradient(top, @one, @two);
+}
+
+.shadow (@hor: 3px, @vert: 2px, @blur: 5px, @shadow: @khaki) {
+	-webkit-box-shadow: @hor @vert @blur @shadow;
+	-moz-box-shadow: @hor @vert @blur @shadow;
+	box-shadow: @hor @vert @blur @shadow;
+}
+
+.round (@one: 5px, @two: 5px, @three: 5px, @four: 5px) {
+	-webkit-border-top-left-radius: @one;
+	-webkit-border-top-right-radius: @two;
+	-webkit-border-bottom-right-radius: @four;
+	-webkit-border-bottom-left-radius: @three;
+	-moz-border-radius-topleft: @one;
+	-moz-border-radius-topright: @two;
+	-moz-border-radius-bottomright: @four;
+	-moz-border-radius-bottomleft: @three;
+	border-top-left-radius: @one;
+	border-top-right-radius: @two;
+	border-bottom-right-radius: @four;
+	border-bottom-left-radius: @three;
+}
+
+.label (@color) {
+	background: @color;
+	padding: 2px;
+	font-size: .6em;
+	color: white;
+	font-weight: bold;
+	height: auto;
+	width: auto;
+	.round(2px, 2px, 2px, 2px);
+	position: relative;
+	top: -2px;
+}
+
+//Font Mixins
+.fancy {
+	font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif;
+	padding:0 2px 10px;
+}
+
+.fancy_ital {
+	font-family: "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif;
+	font-style: italic;
+	padding:0 2px 10px;
+}
+
+.caps {
+	font-variant: small-caps;
+	letter-spacing: 1px;
+	text-transform: lowercase;
+	padding:0 2px;
+}
+
+.bold_fancy {
+	font-weight:bold;
+	.fancy;
+}
+
+.bold_caps {
+	font-weight:bold;
+	.caps;
+}
+
+.caps {
+	font-variant: small-caps;
+	letter-spacing: 1px;
+	text-transform: lowercase;
+	font-size:1.2em;
+	padding:0 2px;
+}
+
+//kendoUI styles
+.t-state-hover, .t-state-hover:hover, .t-state-focus, .t-state-default:hover {
+	.two_gradient(#74b042, #56A00E);
+}
+
+.t-state-hover:hover {
+	border: 0px;
+}
+
+span .t-state-active {
+	color: black;
+}
