@@ -32,6 +32,8 @@ except:
 from config import *
 from configSub import *
 
+app = web.application(urls, globals())
+
 class index:        
 	'''
 	class documentation
@@ -64,5 +66,5 @@ if __name__ == "__main__":
 	app.run()
 
 #wsgi stuff
-app = web.application(urls, globals(), autoreload=False)
-application = app.wsgifunc()
+#app = web.application(urls, globals(), autoreload=False)
+#application = app.wsgifunc()

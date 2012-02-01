@@ -1,0 +1,128 @@
+@big_font: 2.0em;
+
+/* JoshAshby's Colors :D */
+@khaki: #C4B3A4;
+@black: #dbdbdb; /* thats not quiet black... */
+@charcoal: #36454F; /* blue dark grey */
+@grey: #848482;
+@light-grey: #B2BEB5;
+@really-light-grey: #E5E4E2;
+@anti-flash-white: #F2F3F4;
+@eggshell: #F0EAD6;
+@blue: #0067A5;
+@orange: #CC5500;
+@red: #B22222;
+@green: #8DB600;
+@yellow: #E4D00A;
+
+#consoleArea {
+	display: inline-block;
+	div {
+		display: inline-block;
+	}
+	#consoleMain {
+		background: @really-light-grey;
+		width: 100%;
+		text-align: left;
+		font-family: "Courier New", Courier, monospace;
+		#conMid {
+			display: block;
+			font-size: small;
+			ul {
+				position: relative;
+				top: 4px;
+				line-height: 12pt;
+				display: inline-block;
+				list-style: none;
+				span {
+					position: absolute;
+					left: 0px;
+					width: 38px;
+					border-right: 2px solid @red;
+					background: @anti-flash-white;
+				}
+			}
+		}
+	}
+
+	/* Console Looks */
+	#consoleControl {
+		display: inline-block;
+		#consoleBar {
+			font-size: 12px;
+			font-family: "Courier New", Courier, monospace;
+			width: 200px;
+			height: 14px;
+			background: @light-grey;
+			.round(10px, 10px, 10px, 10px);
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			position: relative;
+			top: -1px;
+			margin-right: 5px;
+			border: 1px solid @grey;
+			line-height: 14px;
+		}
+		#consoleSub {
+			display: block;
+			.label(@red);
+		}
+		#consoleSub:hover {
+			background: @red - 50;
+			cursor: pointer;
+		}
+		#consoleSub:active {
+			background: @red - 100;
+			cursor: pointer;
+			border: 1px solid (@red - 10);
+		}
+	}
+}
+
+
+//various Mixin styles
+.two_gradient (@one, @two) {
+	background: @one;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@one), to(@two)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, @one, @two); /* Chrome 10+, Saf5.1+ */
+	background-image: -moz-linear-gradient(top,@one, @two); /* FF3.6 */
+	background-image: -ms-linear-gradient(top, @one, @two); /* IE10 */
+	background-image: -o-linear-gradient(top, @one, @two); /* Opera 11.10+ */
+	background-image: linear-gradient(top, @one, @two);
+}
+
+.shadow (@hor: 3px, @vert: 2px, @blur: 5px, @shadow: @khaki) {
+	-webkit-box-shadow: @hor @vert @blur @shadow;
+	-moz-box-shadow: @hor @vert @blur @shadow;
+	box-shadow: @hor @vert @blur @shadow;
+}
+
+.round (@one: 5px, @two: 5px, @three: 5px, @four: 5px) {
+	-webkit-border-top-left-radius: @one;
+	-webkit-border-top-right-radius: @two;
+	-webkit-border-bottom-right-radius: @four;
+	-webkit-border-bottom-left-radius: @three;
+	-moz-border-radius-topleft: @one;
+	-moz-border-radius-topright: @two;
+	-moz-border-radius-bottomright: @four;
+	-moz-border-radius-bottomleft: @three;
+	border-top-left-radius: @one;
+	border-top-right-radius: @two;
+	border-bottom-right-radius: @four;
+	border-bottom-left-radius: @three;
+}
+
+.label (@color) {
+	background: @color;
+	padding: 2px;
+	font-size: .6em;
+	color: white;
+	font-weight: bold;
+	height: auto;
+	width: auto;
+	.round(2px, 2px, 2px, 2px);
+	position: relative;
+	top: -2px;
+}

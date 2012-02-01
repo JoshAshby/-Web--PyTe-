@@ -20,9 +20,10 @@ except:
 	os.chdir(abspath)
 from configSub import *
 import web
+
 import file
 
 urls = (
 	'/', 'index',
-	'/file', file.app
+	'/', file.app
 )

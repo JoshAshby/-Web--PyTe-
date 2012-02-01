@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+	<title>{Web: PyTe}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/themes/josh-multi.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile.structure-1.0rc2.min.css" />
+
+	<meta name="description" content="{Web: PyTe}">
+	<meta name="author" content="Joshua Ashby">
+	
+</head>
+<body>
+
+	<!--  This is the  page -->
+	<div data-role="page" id="Page" data-title="" data-theme="">
+		<div data-role="header" id="Header">
+			<a href="help.html" data-role="button" data-icon="gear" id="question">Help</a>
+			<h1 id="title">{Web: PyTe}</h1>
+			<a href="options.html" data-role="button" data-icon="gear" id="options">Options</a>
+		</div>
+
+		<div data-role="content" id="Content">
+		</div>
+		
+		<div data-role="footer" data-id="Footer" data-position="fixed">
+			<div style="padding-left: 10px; padding-right: 10px">
+				<a href="#credits.html" data-role="button" data-icon="info" id="credits">Credits</a>
+			
+				<a href="editor.html" data-role="button" data-icon="home" id="home">Editor</a>
+				<a href="console.html" data-role="button" data-icon="grid" id="console">Console</a>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/ace/ace.js"></script>
+	<script src="js/ace/theme-vibrant_ink.js"></script>
+	<script src="js/ace/mode-python.js"></script>
+	<script src="js/ace/mode-javascript.js"></script>
+	<script src="js/ace/mode-coffee.js"></script>
+
+	<script type="text/coffeescript" src="cs/console.coffee"></script>
+	<script type="text/coffeescript" src="cs/main.coffee"></script>
+	
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script> 
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="js/coffee-script.js"></script>
+	
+</body>
+</html>
