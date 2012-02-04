@@ -25,19 +25,20 @@ except:
 	os.chdir(abspath)
 from configSub import *
 
-from baseDocument import fileDoc
-from baseView import fileView
+from baseDocument import projectDoc
+
+frombaseView import projectView
 
 urls = (
 	"", "slash",
-	"/(.*)/", "file"
+	"/(.*)/", "project"
 )
 
-class file:
+class project:
 	'''
 	class documentation
 	
-	Retrieves and returns the information about a file.
+	Retrieves and returns the information about a project.
 	'''
 	def getFunc(self, **kwargs):	
 		'''

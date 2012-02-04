@@ -7,7 +7,7 @@ Sub-App config files
 http://xkcd.com/353/
 
 Josh Ashby
-2011
+2012
 http://joshashby.com
 joshuaashby@joshashby.com
 """

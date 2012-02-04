@@ -7,7 +7,7 @@ Main app config file for URL's
 http://xkcd.com/353/
 
 Josh Ashby
-2011
+2012
 http://joshashby.com
 joshuaashby@joshashby.com
 """
@@ -25,5 +25,5 @@ import file
 
 urls = (
 	'/', 'index',
-	'/', file.app
+	'/file/', file.app
 )

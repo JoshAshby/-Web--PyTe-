@@ -1,0 +1,76 @@
+<!doctype html> 
+<html> 
+
+<head> 
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+	<title>{Web: PyTe}</title> 
+	<meta name="description" content="{Web: PyTe}">
+	<meta name="author" content="Joshua Ashby">
+	
+	<link rel="stylesheet/less" href="css/style.less">
+	<script src="js/less.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		less.env = "development";
+		less.watch();
+	</script>
+</head>
+ 
+<body>
+	
+	<nav>
+		<div id="navBase">
+			<ul>
+				<li><a href='index.html'>{Web: PyTe}</a></li>
+				<li><a href='https://github.com/JoshAshby/-Web--PyTe-'>Source (Closed)</a></li>
+			</ul>
+		</div>
+	</nav>
+	<header>
+		<h1 id="title">{Web: PyTe}</h1>
+	</header>
+	<section id="content">
+		<section id="news">
+			<article>
+				<div class="postTitle">
+					<h1>Welcome, fellow traveler!</h1>
+					<time>February 4, 2012 at 2:20pm</time>
+				</div>
+				<p>You've reached the currently incomplete landing page for {Web: PyTe}, a 2012 Capstone project by Josh Ashby.<br>
+				When this is finished it will provide info, front-end previews and API access for the {Web: PyTe} editior.</p>
+				<hr>
+			</article>
+			<article>
+				<div class="postTitle">
+					<h1>Previews Live</h1>
+					<time>February 4, 2012 at 2:20pm</time>
+				</div>
+				<p>The previews for the front end are now live. There are currently two, one built with the beta of KendoUI and the other built with jQuery Mobile. They can be found here:<br />
+				<a href='frontend-previews/kendo-preview/'>Preview - KendoUI</a><br />
+				<a href='frontend-previews/jquery-preview/'>Preview - jQuery Mobile</a></p>
+				<hr>
+			</article>
+		</section>
+	</section>
+	<br />
+	<hr />
+	<footer>
+		<div id='footerLeft'>
+			<p>A Project by <a href='http://joshashby.com'>JoshAshby</a></p>
+			<p>Copywrite 2012</p>
+		</div>
+		<div id='footerCenter'>
+			<a href='pyte.joshashby.com'>{Web: PyTe}</a>
+			<p>Built with <a href='http://python.org'>Python</a> HTML5 CSS3 and CoffeeScript. Base Logo image taken from Python Logo.</p>
+		</div>
+		<div id='footerRight'>
+			<img src='css/images/pyte.png' width='100px' height='100%;'/>
+		</div>
+	</footer>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/coffeescript" src="cs/index.coffee"></script>
+	<script src="js/coffee-script.js"></script>
+</body> 
+</html>

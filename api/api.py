@@ -3,7 +3,7 @@
 {Web: PyTe}
 A capstone project by Josh Ashby, 2011-2012
 This is the API and background process which the main javascript web app calls on.
-This API does:
+This API may do:
 	File storing in couchDB
 	File downloading to client
 	File organization in Projects
@@ -12,7 +12,7 @@ This API does:
 http://xkcd.com/353/
 
 Josh Ashby
-2011
+2012
 http://joshashby.com
 joshuaashby@joshashby.com
 """
