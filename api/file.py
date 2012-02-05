@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 """
 {Web: PyTe}
 A capstone project by Josh Ashby, 2011-2012
@@ -110,4 +110,4 @@ class file:
 
 
 app = web.application(urls, globals(), autoreload=False)
-application = app.wsgifunc()
+#application = app.wsgifunc()

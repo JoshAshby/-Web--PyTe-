@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 """
 {Web: PyTe}
 A capstone project by Josh Ashby, 2011-2012
@@ -11,6 +11,8 @@ Josh Ashby
 http://joshashby.com
 joshuaashby@joshashby.com
 """
+import web
+
 try:
 	from configSub import *
 except:
@@ -19,11 +21,13 @@ except:
 	sys.path.append(abspath)
 	os.chdir(abspath)
 from configSub import *
-import web
+
 
 import file
+import project
 
 urls = (
 	'/', 'index',
-	'/file/', file.app
+	'/file/', file.app,
+	'/project/', project.app
 )

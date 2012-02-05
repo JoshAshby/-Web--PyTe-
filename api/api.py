@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 """
 {Web: PyTe}
 A capstone project by Josh Ashby, 2011-2012
@@ -33,22 +33,23 @@ from config import *
 from configSub import *
 
 app = web.application(urls, globals())
+app.internalerror = web.debugerror
 
 class index:        
 	'''
 	class documentation
 	'''
 	def getFunc(self):
-		return render.index()
+		return json.dumps(['hello'])
 	
 	def postFunc(self):
-		return render.index()
+		pass
 	
 	def putFunc(self):
-		return render.index()
-	
+		pass
+		
 	def deleteFunc(self):
-		return render.index()
+		pass
 	
 	def GET(self):
 		return self.getFunc()
