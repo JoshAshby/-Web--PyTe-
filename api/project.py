@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 """
 {Web: PyTe}
 A capstone project by Josh Ashby, 2011-2012
@@ -26,7 +26,8 @@ except:
 from configSub import *
 
 from baseDocument import projectDoc
-from baseView import projectView
+
+frombaseView import projectView
 
 urls = (
 	"", "slash",
@@ -51,15 +52,15 @@ class project:
 		#Go through and make sure we're not in testing mode, in which case the unit tests will pass the barcode instead...
 		try:
 			wi = web.input()
-			project = wi['project']
+			file = wi['file']
 		except:
-			project = kwargs['project']
+			file = kwargs['file']
 		
-		project = projectDoc.view("project/admin", key=bar).first()
+		file = fileDoc.view("files/admin", key=bar).first()
 		
-		project = dict(project)
+		file = dict(file)
 		
-		view = projectView.projectView(project, wi)
+		view = fileView.fileView(file, wi)
 		
 		return view.returnData()
 	
@@ -110,4 +111,4 @@ class project:
 
 
 app = web.application(urls, globals(), autoreload=False)
-#application = app.wsgifunc()
+application = app.wsgifunc()

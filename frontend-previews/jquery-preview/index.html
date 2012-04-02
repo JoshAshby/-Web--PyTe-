@@ -5,11 +5,8 @@
 	<title>{Web: PyTe}</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/themes/josh-multi.min.css" />
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile.structure-1.0rc2.min.css" />
-
-	<meta name="description" content="{Web: PyTe}">
-	<meta name="author" content="Joshua Ashby">
+	
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
 	
 	<link rel="stylesheet/less" href="css/style.less">
 	<script src="js/less.js"></script>
@@ -18,101 +15,138 @@
 		less.watch();
 	</script>
 	
+	<link rel="stylesheet" href="css/themes/josh-multi.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile.structure-1.0rc2.min.css" />
+
+	<meta name="description" content="{Web: PyTe}">
+	<meta name="author" content="Joshua Ashby">
 </head>
 <body>
 	
-	<div data-role="dialog" id="openFile">
-		<h1>Upload a file</h1>
-		<p>So I heard you wanted to upload a file to edit it! Great, lets get started.<br>
-		Go a head and click the browse button below and find the file you want to get started with.<br>
-		After your done with that, and the file has been uploaded, this window will go away and you can be free to work on what ever you want in that file.
-		<input type="file" id="openUpload">
+	<div data-role="dialog" data-rel="dialog" id="uploadFile">
+		<div data-role="header" id="editorHeader">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#editorPage" data-role="button" data-icon="info" id="edit">Editor</a>
+				<a href="#openDialog" data-role="button" data-icon="info" id="open">Open</a>
+				<a href="#" data-role="button" data-icon="info" id="save">Save</a>
+				<a href="#saveAsDialog" data-role="button" data-icon="info" id="saveAs">Save As</a>
+				<!--<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="help">Help</a>
+				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>-->
+				<a href="#docInfoDialog" data-role="button" data-icon="info" data-rel="dialog" id="docInfo">Document Info</a>
+			</div>
+		</div>
+		<div data-role="content">
+			<h1>Upload a file</h1>
+			<p>So I heard you wanted to upload a file to edit! Great, lets get started.<br>
+			Go ahead and click the browse button below and find the file you want to work on.<br>
+			After your done with that, and the file has been uploaded, this window will go away and you can be free to work.</p>
+			<input type="file" id="openUpload">
+		</div>
+	</div>
+	
+	<div data-role="dialog" data-rel="dialog" id="openDialog">
+		<div data-role="header" id="editorHeader">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#editorPage" data-role="button" data-icon="info" id="edit">Editor</a>
+				<!--<a href="#openDialog" data-role="button" data-icon="info" id="open">Open</a>-->
+				<a href="#" data-role="button" data-icon="info" id="save">Save</a>
+				<a href="#saveAsDialog" data-role="button" data-icon="info" id="saveAs">Save As</a>
+				<!--<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="help">Help</a>
+				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>-->
+				<a href="#docInfoDialog" data-role="button" data-icon="info" data-rel="dialog" id="docInfo">Document Info</a>
+			</div>
+		</div>
+		<div data-role="content">
+			<h1>Upload a file</h1>
+			<p>Need to choose a new file to work on?</p>
+			<ul id="fileList">
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="dialog" data-rel="dialog" id="saveAsDialog">
+		<div data-role="header" id="editorHeader">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#editorPage" data-role="button" data-icon="info" id="edit">Editor</a>
+				<a href="#openDialog" data-role="button" data-icon="info" id="open">Open</a>
+				<a href="#" data-role="button" data-icon="info" id="save">Save</a>
+				<!--<a href="#saveAsDialog" data-role="button" data-icon="info" id="saveAs">Save As</a>
+				<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="help">Help</a>
+				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>-->
+				<a href="#docInfoDialog" data-role="button" data-icon="info" data-rel="dialog" id="docInfo">Document Info</a>
+			</div>
+		</div>
+		<div data-role="content">
+			<h1>Upload a file</h1>
+			<p>Saving a file as something else, now are we?</p>
+			<p>Just go a head and enter the information about this here "new" file and hit save! Good luck!</p>
+			<p>Author:
+			<section id='saveAsAuthor' contenteditable='true'>
+				Author here
+			</section>
+			Read only? (enter "true" or "false" here only)
+			<section id='saveAsReadOnly' contenteditable='true'>
+				true or false here
+			</section>
+			Title (Whats this strangers name?):
+			<section id='saveAsTitle' contenteditable='true'>
+				Title here
+			</section>
+			Description (write a little about the file and what it's for...):
+			<section id='saveAsDescription' contenteditable='true'>
+				Description here
+			</section>
+			</p>
+			<button id="saveAsButton">Save!</button>
+		</div>
+	</div>
+	
+	<div data-role="dialog" data-rel="dialog" id="docInfoDialog">
+		<div data-role="header" id="editorHeader">
+			<div data-role="controlgroup" data-type="horizontal">
+				<a href="#editorPage" data-role="button" data-icon="info" id="edit">Editor</a>
+				<a href="#openDialog" data-role="button" data-icon="info" id="open">Open</a>
+				<a href="#" data-role="button" data-icon="info" id="save">Save</a>
+				<a href="#saveAsDialog" data-role="button" data-icon="info" id="saveAs">Save As</a>
+				<!--<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="help">Help</a>
+				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>-->
+			</div>
+		</div>
+		<div data-role="content">
+			Title:
+			<section id='title' contenteditable='true'>
+				Title here
+			</section>
+			Author:
+			<section id='author' contenteditable='true'>
+				Author here
+			</section>
+			Description:
+			<section id="description" contenteditable="true">
+				Description here
+			</section>
+			Read Only? (enter "true" or "false" only)
+			<section id="readOnly" contenteditable="true">
+				true or false here
+			</section>
+		</div>
 	</div>
 
-	<!--  This is the main editor page -->
 	<div data-role="page" id="editorPage" data-title="Editor">
 		<div data-role="header" id="editorHeader">
-			<h1 id="title">{Web: PyTe} Editor</h1>
 			<div data-role="controlgroup" data-type="horizontal">
-				<select data-icon="grid" data-role="select">
-					<option value="null">File</option>
-					<option value="upload">Upload a file</option>
-					<option value="open">Open</option>
-				</select>
-				<a href="#editorPage" data-role="button" data-icon="home" id="home">Editor</a>
-				<a href="#consolePage" data-role="button" data-icon="grid" id="console">Console</a>
-				<a href="#optionsPage" data-role="button" data-icon="gear" id="options">Options</a>
-				<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="question">Help</a>
+				<a href="#uploadFile" data-role="button" data-icon="info" id="upload">Upload</a>
+				<a href="#openDialog" data-role="button" data-icon="info" id="open">Open</a>
+				<a href="#" data-role="button" data-icon="info" id="save">Save</a>
+				<a href="#saveAsDialog" data-role="button" data-icon="info" id="saveAs">Save As</a>
+				<!--<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="help">Help</a>
+				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>-->
+				<a href="#docInfoDialog" data-role="button" data-icon="info" data-rel="dialog" id="docInfo">Document Info</a>
 			</div>
 		</div>
 
 		<div data-role="content" id="editorContent">
 			<div id="editor" style="width: 100%"></div>
-		</div>
-		
-		<div data-role="footer" data-id="editorFooter" data-position="fixed">
-			<div>
-				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>
-			</div>
-		</div>
-	</div>
-	
-	<!--  This is the console page -->
-	<div data-role="page" id="consolePage" data-title="Console" data-theme="c">
-		<div data-role="header" id="consoleHeader" data-theme="c">
-			<h1 id="title">{Web: PyTe} Console</h1>
-			<div data-role="controlgroup" data-type="horizontal">
-				<select data-icon="grid" data-role="select">
-					<option value="null">File</option>
-					<option value="upload">Upload a file</option>
-					<option value="open">Open</option>
-				</select>
-				<a href="#editorPage" data-role="button" data-icon="home" id="home">Editor</a>
-				<a href="#consolePage" data-role="button" data-icon="grid" id="console">Console</a>
-				<a href="#optionsPage" data-role="button" data-icon="gear" id="options">Options</a>
-				<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="question">Help</a>
-			</div>
-		</div>
-
-		<div data-role="content">
-			<div id="consoleArea">
-				<div id="consoleMain"></div>
-				<div id="consoleControl"></div>
-			</div>
-		</div>
-		
-		<div data-role="footer" data-id="consoleFooter" data-position="fixed" data-theme="c">
-			<div style="padding-left: 10px; padding-right: 10px">
-				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>
-			</div>
-		</div>
-	</div>
-	
-	<!--  This is the options page -->
-	<div data-role="page" id="optionsPage" data-title="Options" data-theme="b">
-		<div data-role="header" id="optionsHeader" data-theme="b">
-			<h1 id="title">{Web: PyTe} Options</h1>
-			<div data-role="controlgroup" data-type="horizontal">
-				<select data-icon="grid" data-role="select">
-					<option value="null">File</option>
-					<option value="upload">Upload a file</option>
-					<option value="open">Open</option>
-				</select>
-				<a href="#editorPage" data-role="button" data-icon="home" id="home">Editor</a>
-				<a href="#consolePage" data-role="button" data-icon="grid" id="console">Console</a>
-				<a href="#optionsPage" data-role="button" data-icon="gear" id="options">Options</a>
-				<a href="help.html" data-role="button" data-icon="info" data-rel="dialog" id="question">Help</a>
-			</div>
-		</div>
-
-		<div data-role="content" id="optionsContent">
-			<p>Welcome to the options! I can't do anything right now but I will be able to soon!</p>
-		</div>
-		
-		<div data-role="footer" data-id="optionsFooter" data-position="fixed" data-theme="b">
-			<div style="padding-left: 10px; padding-right: 10px">
-				<a href="credits.html" data-role="button" data-icon="info" data-rel="dialog" id="credits">Credits</a>
-			</div>
 		</div>
 	</div>
 	
@@ -122,7 +156,6 @@
 	<script src="js/ace/mode-javascript.js"></script>
 	<script src="js/ace/mode-coffee.js"></script>
 
-	<script type="text/coffeescript" src="cs/console.coffee"></script>
 	<script type="text/coffeescript" src="cs/editor.coffee"></script>
 	
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script> 

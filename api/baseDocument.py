@@ -1,7 +1,8 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 """
 {Web: PyTe}
 A capstone project by Josh Ashby, 2011-2012
+Database ORM design objects for use with the APP for more Pythonic database interaction.
 
 http://xkcd.com/353/
 
@@ -11,39 +12,44 @@ http://joshashby.com
 joshuaashby@joshashby.com
 """
 import json
-'''
-From: http://webpy.org/install and http://code.google.com/p/modwsgi/wiki/ApplicationIssues
-This must be done to avoid the import errors which come up with having linear.py and config.py
-'''
-try:
-	from configSub import *
-except:
-	import sys, os
-	abspath = os.path.dirname(__file__)
-	sys.path.append(abspath)
-	os.chdir(abspath)
-from configSub import *
-
+import web
+import sys
+import os
+abspath = os.path.dirname(__file__)
+sys.path.append(abspath)
+os.chdir(abspath)
+from config import *
 import couchdbkit
 
 databaseName = 'pyte'
 
 database = couchdbkit.Server()[databaseName]
 
+
 class fileDoc(couchdbkit.Document):
-	hash = couchdbkit.StringProperty()
+	"""
+	ORM for the fileDoc doc_type document in couch.
+	Provides a more Pythonic way of working with the database.
+	"""
+	hashID = couchdbkit.IntegerProperty()
 	title = couchdbkit.StringProperty()
+	description = couchdbkit.StringProperty()
 	programText = couchdbkit.StringProperty()
 	
-	doc_type = "fileDoc"
+	docType = "fileDoc"
 
 fileDoc.set_db(database)
 
 class projectDoc(couchdbkit.Document):
-	hash = couchdbkit.StringProperty()
+	"""
+	ORM for the projectDoc doc_type document in couch.
+	Provides a more Pythonic way of working with the database.
+	"""
+	hashID = couchdbkit.IntegerProperty()
 	name = couchdbkit.StringProperty()
-	files = couchdbkit.DictProperty()
+	description = couchdbkit.StringProperty()
+	fileIDs = couchdbkit.ListProperty()
 	
-	doc_type = "projectDoc"
+	docType = "projectDoc"
 
 projectDoc.set_db(database)
